@@ -1,0 +1,64 @@
+Arquivo Aluno 
+public class Aluno {
+   public String nome;
+   private String matricula;
+   protected int idade;
+   String email;
+
+
+   public Aluno(String nome, String matricula, int idade, String email) {
+       this.nome = nome;
+       this.matricula = matricula;
+       this.idade = idade;
+       this.email = email;
+   }
+   public void mostrarDadosPublicos() {
+       System.out.println("Dados Públicos:");
+       System.out.println("Nome: " + this.nome);
+
+
+
+
+   }
+   private void mostrarTodosDados() {
+       System.out.println("Todos os Dados:");
+       System.out.println("Nome: " + this.nome);
+       System.out.println("Matrícula: " + this.matricula);
+       System.out.println("Idade: " + this.idade);
+       System.out.println("Email: " + this.email);
+   }
+   public void acessarDadosPrivados() {
+       System.out.println("\nAcessando dados privados através de um método público...");
+       mostrarTodosDados();
+   }
+}
+
+Arquivo Teste Acesso
+public class TesteAcesso {
+   public static void main(String[] args) {
+
+
+       Aluno aluno1 = new Aluno("Joao Silva", "2023001", 20, "joao.silva@email.com");
+
+
+       System.out.println("--- Teste de Acesso Direto aos Atributos ---");
+
+
+       System.out.println("Acesso ao 'nome' (public): " + aluno1.nome);
+
+
+       System.out.println("Acesso à 'idade' (protected): " + aluno1.idade);
+
+
+       System.out.println("Acesso ao 'email' (default): " + aluno1.email);
+
+
+       System.out.println("\n--- Teste de Acesso via Métodos ---");
+
+
+       aluno1.mostrarDadosPublicos();
+       aluno1.acessarDadosPrivados();
+
+
+   }
+}
